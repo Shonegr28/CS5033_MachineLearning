@@ -347,6 +347,7 @@ class FeedForwardNeuralNetwork:
 
 
 if __name__ == "__main__":
+    random.seed(1)
 
     # Load dataset:
     X = gaussian_2d_narrow_X
@@ -357,8 +358,8 @@ if __name__ == "__main__":
         X=X,
         Y=Y,
         dimensions=[2, 4, 1],
-        learning_rate=0.01,
-        num_iterations=1000
+        learning_rate=0.02,
+        num_iterations=5000
     )
 
     # Train network:
