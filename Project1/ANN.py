@@ -346,26 +346,112 @@ class FeedForwardNeuralNetwork:
         return accuracy
 
 
+def run_gaussian_2d_narrow(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 2D NARROW ===========")
+    network = FeedForwardNeuralNetwork(gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_2d_narrow_X_validation, gaussian_2d_narrow_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_gaussian_2d_overlap(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 2D OVERLAP ===========")
+    network = FeedForwardNeuralNetwork(gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_2d_overlap_X_validation, gaussian_2d_overlap_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_gaussian_2d_wide(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 2D WIDW ===========")
+    network = FeedForwardNeuralNetwork(gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_2d_wide_X_validation, gaussian_2d_wide_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_gaussian_3d_narrow(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 3D NARROW ===========")
+    network = FeedForwardNeuralNetwork(gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_3d_narrow_X_validation, gaussian_3d_narrow_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_gaussian_3d_overlap(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 3D OVERLAP ===========")
+    network = FeedForwardNeuralNetwork(gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_3d_overlap_X_validation, gaussian_3d_overlap_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_gaussian_3d_wide(dimensions, learning_rate, num_iterations):
+    print("\n=========== GAUSSIAN 3D WIDE ===========")
+    network = FeedForwardNeuralNetwork(gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train)
+    validation_accuracy = network.evaluate_accuracy(gaussian_3d_wide_X_validation, gaussian_3d_wide_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_moon_2d_narrow(dimensions, learning_rate, num_iterations):
+    print("\n=========== MOON 2D NARROW ===========")
+    network = FeedForwardNeuralNetwork(moons_2d_narrow_X_train, moons_2d_narrow_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(moons_2d_narrow_X_train, moons_2d_narrow_Y_train)
+    validation_accuracy = network.evaluate_accuracy(moons_2d_narrow_X_validation, moons_2d_narrow_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_moon_2d_overlap(dimensions, learning_rate, num_iterations):
+    print("\n=========== MOON 2D OVERLAP ===========")
+    network = FeedForwardNeuralNetwork(moons_2d_overlap_X_train, moons_2d_overlap_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(moons_2d_overlap_X_train, moons_2d_overlap_Y_train)
+    validation_accuracy = network.evaluate_accuracy(moons_2d_overlap_X_validation, moons_2d_overlap_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
+
+def run_moon_2d_wide(dimensions, learning_rate, num_iterations):
+    print("\n=========== MOON 2D WIDE ===========")
+    network = FeedForwardNeuralNetwork(moons_2d_wide_X_train, moons_2d_wide_Y_train, dimensions, learning_rate, num_iterations)
+    network.train()
+    training_accuracy = network.evaluate_accuracy(moons_2d_wide_X_train, moons_2d_wide_Y_train)
+    validation_accuracy = network.evaluate_accuracy(moons_2d_wide_X_validation, moons_2d_wide_Y_validation)
+    print("Training Accuracy:", training_accuracy)
+    print("Validation Accuracy:", validation_accuracy)
+
 if __name__ == "__main__":
     random.seed(1)
 
-    # Load dataset:
-    X = gaussian_2d_narrow_X
-    Y = gaussian_2d_narrow_Y
+    dimensions_2d = [2, 4, 1]
+    dimensions_3d = [3, 4, 1]
 
-    # Initialize network:
-    network = FeedForwardNeuralNetwork(
-        X=X,
-        Y=Y,
-        dimensions=[2, 4, 1],
-        learning_rate=0.02,
-        num_iterations=5000
-    )
+    learning_rate = 0.02
+    num_iterations = 2000
 
-    # Train network:
-    network.train()
+    run_gaussian_2d_narrow(dimensions_2d, learning_rate, num_iterations)
+    run_gaussian_2d_overlap(dimensions_2d, learning_rate, num_iterations)
+    run_gaussian_2d_wide(dimensions_2d, learning_rate, num_iterations)
 
-    # Evaluate network performance on training data:
-    accuracy = network.evaluate_accuracy(X, Y)
+    run_gaussian_3d_narrow(dimensions_3d, learning_rate, num_iterations)
+    run_gaussian_3d_overlap(dimensions_3d, learning_rate, num_iterations)
+    run_gaussian_3d_wide(dimensions_3d, learning_rate, num_iterations)
 
-    print("Training Accuracy:", accuracy)
+    run_moon_2d_narrow(dimensions_2d, learning_rate, num_iterations)
+    run_moon_2d_overlap(dimensions_2d, learning_rate, num_iterations)
+    run_moon_2d_wide(dimensions_2d, learning_rate, num_iterations)
