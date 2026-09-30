@@ -2,7 +2,7 @@
 import math
 import random
 from datasets import *
-from results import print_results, save_results_csv, plot_validation_accuracy, plot_average_cost
+from results import *
 """
 FILE: implements a neural network from scratch for this project
 """
@@ -358,7 +358,7 @@ def run_gaussian_2d_narrow(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_gaussian_2d_overlap(dimensions, learning_rate, num_iterations):
@@ -373,7 +373,7 @@ def run_gaussian_2d_overlap(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_gaussian_2d_wide(dimensions, learning_rate, num_iterations):
@@ -388,7 +388,7 @@ def run_gaussian_2d_wide(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_gaussian_3d_narrow(dimensions, learning_rate, num_iterations):
@@ -403,7 +403,7 @@ def run_gaussian_3d_narrow(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_gaussian_3d_overlap(dimensions, learning_rate, num_iterations):
@@ -418,7 +418,7 @@ def run_gaussian_3d_overlap(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_gaussian_3d_wide(dimensions, learning_rate, num_iterations):
@@ -433,7 +433,7 @@ def run_gaussian_3d_wide(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_moon_2d_narrow(dimensions, learning_rate, num_iterations):
@@ -448,7 +448,7 @@ def run_moon_2d_narrow(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_moon_2d_overlap(dimensions, learning_rate, num_iterations):
@@ -463,7 +463,7 @@ def run_moon_2d_overlap(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
 def run_moon_2d_wide(dimensions, learning_rate, num_iterations):
@@ -478,9 +478,22 @@ def run_moon_2d_wide(dimensions, learning_rate, num_iterations):
     print("Training Accuracy:", training_accuracy)
     print("Validation Accuracy:", validation_accuracy)
 
-    return training_accuracy, validation_accuracy, network.cost, network.costs
+    return training_accuracy, validation_accuracy, network.cost, network.costs, network
 
 
+# get trained network with highest validation accuracy
+def get_best_network(results):
+    # start with first result as best
+    best_result = results[0]
+
+    # check every repetition
+    for result in results:
+        # if validation accuracy is higher, make this the best result
+        if result[1] > best_result[1]:
+            best_result = result
+
+    # return trained network from best result
+    return best_result[4]
 
 
 if __name__ == "__main__":
@@ -565,6 +578,39 @@ if __name__ == "__main__":
     save_results_csv(dataset_names, all_results)
 
 
+
+
+
+
+
     # make graphs
     plot_validation_accuracy(dataset_names, all_results)
     plot_average_cost(dataset_names, all_results)
+
+    # get best network for each dataset
+    gaussian_2d_narrow_network = get_best_network(gaussian_2d_narrow_results)
+    gaussian_2d_overlap_network = get_best_network(gaussian_2d_overlap_results)
+    gaussian_2d_wide_network = get_best_network(gaussian_2d_wide_results)
+
+    gaussian_3d_narrow_network = get_best_network(gaussian_3d_narrow_results)
+    gaussian_3d_overlap_network = get_best_network(gaussian_3d_overlap_results)
+    gaussian_3d_wide_network = get_best_network(gaussian_3d_wide_results)
+
+    moon_2d_narrow_network = get_best_network(moon_2d_narrow_results)
+    moon_2d_overlap_network = get_best_network(moon_2d_overlap_results)
+    moon_2d_wide_network = get_best_network(moon_2d_wide_results)
+
+
+    # plot 2D decision boundaries
+    plot_decision_boundary_2d(gaussian_2d_narrow_network, gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train, "Gaussian 2D Narrow", "gaussian_2d_narrow_boundary.png")
+    plot_decision_boundary_2d(gaussian_2d_overlap_network, gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train, "Gaussian 2D Overlap", "gaussian_2d_overlap_boundary.png")
+    plot_decision_boundary_2d(gaussian_2d_wide_network, gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train, "Gaussian 2D Wide", "gaussian_2d_wide_boundary.png")
+
+    plot_decision_boundary_2d(moon_2d_narrow_network, moons_2d_narrow_X_train, moons_2d_narrow_Y_train, "Moon 2D Narrow", "moon_2d_narrow_boundary.png")
+    plot_decision_boundary_2d(moon_2d_overlap_network, moons_2d_overlap_X_train, moons_2d_overlap_Y_train, "Moon 2D Overlap", "moon_2d_overlap_boundary.png")
+    plot_decision_boundary_2d(moon_2d_wide_network, moons_2d_wide_X_train, moons_2d_wide_Y_train, "Moon 2D Wide", "moon_2d_wide_boundary.png")
+
+    # plot 3D decision boundaries
+    plot_decision_boundary_3d(gaussian_3d_narrow_network, gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train, "Gaussian 3D Narrow", "gaussian_3d_narrow_boundary.png")
+    plot_decision_boundary_3d(gaussian_3d_overlap_network, gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train, "Gaussian 3D Overlap", "gaussian_3d_overlap_boundary.png")
+    plot_decision_boundary_3d(gaussian_3d_wide_network, gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train, "Gaussian 3D Wide", "gaussian_3d_wide_boundary.png")
