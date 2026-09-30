@@ -3,6 +3,8 @@ import math
 import random
 from datasets import *
 from results import *
+import results
+import os
 """
 FILE: implements a neural network from scratch for this project
 """
@@ -58,7 +60,8 @@ class FeedForwardNeuralNetwork:
                 self.W[l].append([])
                 # for every node in previous layer l-1, init a random weight for every node in cur-layer-l
                 for n in range(self.dimensions[l]):
-                    self.W[l][prev].append(random.uniform(-0.1, 0.1))
+                    weight_init = np.random.randn() * np.sqrt(2.0 / self.dimensions[l-1])
+                    self.W[l][prev].append(weight_init)
 
             # init one bias-param for every node in cur-layer
             for n in range(self.dimensions[l]):
@@ -497,120 +500,234 @@ def get_best_network(results):
 
 
 if __name__ == "__main__":
+    root_directory = os.path.dirname(os.path.abspath(__file__))
+    data_directory = os.path.join(root_directory, "data")
+    os.makedirs(data_directory, exist_ok=True)
 
-    random.seed(1)
+    save_terminal_output(os.path.join(data_directory, "terminal_summary.txt"))
 
-    dimensions_2d = [2, 4, 1]
-    dimensions_3d = [3, 4, 1]
+    # simple network configuration
+    simple_dimensions_2d = [2, 3, 1]
+    simple_dimensions_3d = [3, 3, 1]
+    simple_learning_rate = 0.005
+    simple_num_iterations = 3000
 
-    learning_rate = 0.01
-    num_iterations = 1500
-    num_repetitions = 10
+    # complex network configuration
+    complex_dimensions_2d = [2, 10, 5, 1]
+    complex_dimensions_3d = [3, 10, 5, 1]
+    complex_learning_rate = 0.005
+    complex_num_iterations = 3000
 
+    num_repetitions = 1
 
-    # stores all 10 results for each dataset
-    gaussian_2d_narrow_results = []
-    gaussian_2d_overlap_results = []
-    gaussian_2d_wide_results = []
+    # ============================================================
+    # SIMPLE NETWORK
+    # ============================================================
 
-    gaussian_3d_narrow_results = []
-    gaussian_3d_overlap_results = []
-    gaussian_3d_wide_results = []
+    gaussian_2d_narrow_simple = []
+    gaussian_2d_overlap_simple = []
+    gaussian_2d_wide_simple = []
+    gaussian_3d_narrow_simple = []
+    gaussian_3d_overlap_simple = []
+    gaussian_3d_wide_simple = []
+    moon_2d_narrow_simple = []
+    moon_2d_overlap_simple = []
+    moon_2d_wide_simple = []
 
-    moon_2d_narrow_results = []
-    moon_2d_overlap_results = []
-    moon_2d_wide_results = []
+    print("\n\n==================================================")
+    print("RUNNING SIMPLE NETWORK")
+    print("==================================================")
 
-
-    # run all 9 datasets 10 times
     for repetition in range(num_repetitions):
-
-        print("\n\n========================================")
-        print("REPETITION:", repetition + 1)
+        print("\n========================================")
+        print("SIMPLE NETWORK - REPETITION:", repetition + 1)
         print("========================================")
 
+        gaussian_2d_narrow_simple.append(run_gaussian_2d_narrow(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
+        gaussian_2d_overlap_simple.append(run_gaussian_2d_overlap(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
+        gaussian_2d_wide_simple.append(run_gaussian_2d_wide(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
 
-        gaussian_2d_narrow_results.append(run_gaussian_2d_narrow(dimensions_2d, learning_rate, num_iterations))
-        gaussian_2d_overlap_results.append(run_gaussian_2d_overlap(dimensions_2d, learning_rate, num_iterations))
-        gaussian_2d_wide_results.append(run_gaussian_2d_wide(dimensions_2d, learning_rate, num_iterations))
+        gaussian_3d_narrow_simple.append(run_gaussian_3d_narrow(simple_dimensions_3d, simple_learning_rate, simple_num_iterations))
+        gaussian_3d_overlap_simple.append(run_gaussian_3d_overlap(simple_dimensions_3d, simple_learning_rate, simple_num_iterations))
+        gaussian_3d_wide_simple.append(run_gaussian_3d_wide(simple_dimensions_3d, simple_learning_rate, simple_num_iterations))
 
-        gaussian_3d_narrow_results.append(run_gaussian_3d_narrow(dimensions_3d, learning_rate, num_iterations))
-        gaussian_3d_overlap_results.append(run_gaussian_3d_overlap(dimensions_3d, learning_rate, num_iterations))
-        gaussian_3d_wide_results.append(run_gaussian_3d_wide(dimensions_3d, learning_rate, num_iterations))
+        moon_2d_narrow_simple.append(run_moon_2d_narrow(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
+        moon_2d_overlap_simple.append(run_moon_2d_overlap(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
+        moon_2d_wide_simple.append(run_moon_2d_wide(simple_dimensions_2d, simple_learning_rate, simple_num_iterations))
 
-        moon_2d_narrow_results.append(run_moon_2d_narrow(dimensions_2d, learning_rate, num_iterations))
-        moon_2d_overlap_results.append(run_moon_2d_overlap(dimensions_2d, learning_rate, num_iterations))
-        moon_2d_wide_results.append(run_moon_2d_wide(dimensions_2d, learning_rate, num_iterations))
+    # ============================================================
+    # COMPLEX NETWORK
+    # ============================================================
 
+    gaussian_2d_narrow_complex = []
+    gaussian_2d_overlap_complex = []
+    gaussian_2d_wide_complex = []
+    gaussian_3d_narrow_complex = []
+    gaussian_3d_overlap_complex = []
+    gaussian_3d_wide_complex = []
+    moon_2d_narrow_complex = []
+    moon_2d_overlap_complex = []
+    moon_2d_wide_complex = []
 
-    # names used for printing and graphs
+    print("\n\n==================================================")
+    print("RUNNING COMPLEX NETWORK")
+    print("==================================================")
+
+    for repetition in range(num_repetitions):
+        print("\n========================================")
+        print("COMPLEX NETWORK - REPETITION:", repetition + 1)
+        print("========================================")
+
+        gaussian_2d_narrow_complex.append(run_gaussian_2d_narrow(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+        gaussian_2d_overlap_complex.append(run_gaussian_2d_overlap(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+        gaussian_2d_wide_complex.append(run_gaussian_2d_wide(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+
+        gaussian_3d_narrow_complex.append(run_gaussian_3d_narrow(complex_dimensions_3d, complex_learning_rate, complex_num_iterations))
+        gaussian_3d_overlap_complex.append(run_gaussian_3d_overlap(complex_dimensions_3d, complex_learning_rate, complex_num_iterations))
+        gaussian_3d_wide_complex.append(run_gaussian_3d_wide(complex_dimensions_3d, complex_learning_rate, complex_num_iterations))
+
+        moon_2d_narrow_complex.append(run_moon_2d_narrow(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+        moon_2d_overlap_complex.append(run_moon_2d_overlap(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+        moon_2d_wide_complex.append(run_moon_2d_wide(complex_dimensions_2d, complex_learning_rate, complex_num_iterations))
+
+    # names used for printing, CSV files, and graphs
     dataset_names = [
-        "Gaussian 2D Narrow",
-        "Gaussian 2D Overlap",
-        "Gaussian 2D Wide",
-        "Gaussian 3D Narrow",
-        "Gaussian 3D Overlap",
-        "Gaussian 3D Wide",
-        "Moon 2D Narrow",
-        "Moon 2D Overlap",
-        "Moon 2D Wide"
+        "Gaussian 2D Narrow", "Gaussian 2D Overlap", "Gaussian 2D Wide",
+        "Gaussian 3D Narrow", "Gaussian 3D Overlap", "Gaussian 3D Wide",
+        "Moon 2D Narrow", "Moon 2D Overlap", "Moon 2D Wide"
     ]
 
-
-    # put all dataset results together
-    all_results = [
-        gaussian_2d_narrow_results,
-        gaussian_2d_overlap_results,
-        gaussian_2d_wide_results,
-        gaussian_3d_narrow_results,
-        gaussian_3d_overlap_results,
-        gaussian_3d_wide_results,
-        moon_2d_narrow_results,
-        moon_2d_overlap_results,
-        moon_2d_wide_results
+    # put simple network results together
+    simple_results = [
+        gaussian_2d_narrow_simple, gaussian_2d_overlap_simple, gaussian_2d_wide_simple,
+        gaussian_3d_narrow_simple, gaussian_3d_overlap_simple, gaussian_3d_wide_simple,
+        moon_2d_narrow_simple, moon_2d_overlap_simple, moon_2d_wide_simple
     ]
 
+    # put complex network results together
+    complex_results = [
+        gaussian_2d_narrow_complex, gaussian_2d_overlap_complex, gaussian_2d_wide_complex,
+        gaussian_3d_narrow_complex, gaussian_3d_overlap_complex, gaussian_3d_wide_complex,
+        moon_2d_narrow_complex, moon_2d_overlap_complex, moon_2d_wide_complex
+    ]
 
-    # print averaged results
-    print_results(dataset_names, all_results)
+    # print results separately
+    print("\n\n==================================================")
+    print("SIMPLE NETWORK RESULTS")
+    print("==================================================")
+    print_results(dataset_names, simple_results)
 
-    # save raw data
-    save_results_csv(dataset_names, all_results)
-
-
-
-
-
-
-
-    # make graphs
-    plot_validation_accuracy(dataset_names, all_results)
-    plot_average_cost(dataset_names, all_results)
-
-    # get best network for each dataset
-    gaussian_2d_narrow_network = get_best_network(gaussian_2d_narrow_results)
-    gaussian_2d_overlap_network = get_best_network(gaussian_2d_overlap_results)
-    gaussian_2d_wide_network = get_best_network(gaussian_2d_wide_results)
-
-    gaussian_3d_narrow_network = get_best_network(gaussian_3d_narrow_results)
-    gaussian_3d_overlap_network = get_best_network(gaussian_3d_overlap_results)
-    gaussian_3d_wide_network = get_best_network(gaussian_3d_wide_results)
-
-    moon_2d_narrow_network = get_best_network(moon_2d_narrow_results)
-    moon_2d_overlap_network = get_best_network(moon_2d_overlap_results)
-    moon_2d_wide_network = get_best_network(moon_2d_wide_results)
+    print("\n\n==================================================")
+    print("COMPLEX NETWORK RESULTS")
+    print("==================================================")
+    print_results(dataset_names, complex_results)
 
 
-    # plot 2D decision boundaries
-    plot_decision_boundary_2d(gaussian_2d_narrow_network, gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train, "Gaussian 2D Narrow", "gaussian_2d_narrow_boundary.png")
-    plot_decision_boundary_2d(gaussian_2d_overlap_network, gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train, "Gaussian 2D Overlap", "gaussian_2d_overlap_boundary.png")
-    plot_decision_boundary_2d(gaussian_2d_wide_network, gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train, "Gaussian 2D Wide", "gaussian_2d_wide_boundary.png")
+        # ============================================================
+    # OUTPUT DIRECTORIES
+    # ============================================================
 
-    plot_decision_boundary_2d(moon_2d_narrow_network, moons_2d_narrow_X_train, moons_2d_narrow_Y_train, "Moon 2D Narrow", "moon_2d_narrow_boundary.png")
-    plot_decision_boundary_2d(moon_2d_overlap_network, moons_2d_overlap_X_train, moons_2d_overlap_Y_train, "Moon 2D Overlap", "moon_2d_overlap_boundary.png")
-    plot_decision_boundary_2d(moon_2d_wide_network, moons_2d_wide_X_train, moons_2d_wide_Y_train, "Moon 2D Wide", "moon_2d_wide_boundary.png")
+    root_directory = os.path.dirname(os.path.abspath(__file__))
+    data_directory = os.path.join(root_directory, "data")
+    compare_directory = os.path.join(root_directory, "compare_figures")
 
-    # plot 3D decision boundaries
-    plot_decision_boundary_3d(gaussian_3d_narrow_network, gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train, "Gaussian 3D Narrow", "gaussian_3d_narrow_boundary.png")
-    plot_decision_boundary_3d(gaussian_3d_overlap_network, gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train, "Gaussian 3D Overlap", "gaussian_3d_overlap_boundary.png")
-    plot_decision_boundary_3d(gaussian_3d_wide_network, gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train, "Gaussian 3D Wide", "gaussian_3d_wide_boundary.png")
+    os.makedirs(data_directory, exist_ok=True)
+    os.makedirs(compare_directory, exist_ok=True)
+
+
+    # ============================================================
+    # SAVE CSV DATA
+    # ============================================================
+
+    results.DIRECTORY = data_directory
+
+    save_results_csv(dataset_names, simple_results, "results_simple_net_data.csv")
+    save_results_csv(dataset_names, complex_results, "results_complex_net_data.csv")
+
+
+    # ============================================================
+    # SAVE COMPARISON FIGURES
+    # ============================================================
+
+    results.DIRECTORY = compare_directory
+
+    # overall average cost plots
+    plot_average_cost(dataset_names, simple_results, "Simple Network", "simple_average_cost.png")
+    plot_average_cost(dataset_names, complex_results, "Complex Network", "complex_average_cost.png")
+
+    # simple vs complex cost for each dataset
+    plot_network_cost_comparison("Gaussian 2D Narrow", gaussian_2d_narrow_simple, gaussian_2d_narrow_complex, "G_2D_narrow_cost.png")
+    plot_network_cost_comparison("Gaussian 2D Overlap", gaussian_2d_overlap_simple, gaussian_2d_overlap_complex, "G_2D_overlap_cost.png")
+    plot_network_cost_comparison("Gaussian 2D Wide", gaussian_2d_wide_simple, gaussian_2d_wide_complex, "G_2D_wide_cost.png")
+
+    plot_network_cost_comparison("Gaussian 3D Narrow", gaussian_3d_narrow_simple, gaussian_3d_narrow_complex, "G_3D_narrow_cost.png")
+    plot_network_cost_comparison("Gaussian 3D Overlap", gaussian_3d_overlap_simple, gaussian_3d_overlap_complex, "G_3D_overlap_cost.png")
+    plot_network_cost_comparison("Gaussian 3D Wide", gaussian_3d_wide_simple, gaussian_3d_wide_complex, "G_3D_wide_cost.png")
+
+    plot_network_cost_comparison("Moon 2D Narrow", moon_2d_narrow_simple, moon_2d_narrow_complex, "M_2D_narrow_cost.png")
+    plot_network_cost_comparison("Moon 2D Overlap", moon_2d_overlap_simple, moon_2d_overlap_complex, "M_2D_overlap_cost.png")
+    plot_network_cost_comparison("Moon 2D Wide", moon_2d_wide_simple, moon_2d_wide_complex, "M_2D_wide_cost.png")
+
+
+
+
+    # ============================================================
+    # SIMPLE NETWORK DECISION BOUNDARIES
+    # ============================================================
+
+    simple_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "simple_network_figures")
+    os.makedirs(simple_directory, exist_ok=True)
+    results.DIRECTORY = simple_directory
+
+    G_2D_narrow = get_best_network(gaussian_2d_narrow_simple)
+    G_2D_overlap = get_best_network(gaussian_2d_overlap_simple)
+    G_2D_wide = get_best_network(gaussian_2d_wide_simple)
+    G_3D_narrow = get_best_network(gaussian_3d_narrow_simple)
+    G_3D_overlap = get_best_network(gaussian_3d_overlap_simple)
+    G_3D_wide = get_best_network(gaussian_3d_wide_simple)
+    M_2D_narrow = get_best_network(moon_2d_narrow_simple)
+    M_2D_overlap = get_best_network(moon_2d_overlap_simple)
+    M_2D_wide = get_best_network(moon_2d_wide_simple)
+
+    plot_decision_boundary_2d(G_2D_narrow, gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train, "Gaussian 2D Narrow - Simple Network", "G_2D_narrow_boundary.png")
+    plot_decision_boundary_2d(G_2D_overlap, gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train, "Gaussian 2D Overlap - Simple Network", "G_2D_overlap_boundary.png")
+    plot_decision_boundary_2d(G_2D_wide, gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train, "Gaussian 2D Wide - Simple Network", "G_2D_wide_boundary.png")
+
+    plot_decision_boundary_3d(G_3D_narrow, gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train, "Gaussian 3D Narrow - Simple Network", "G_3D_narrow_boundary.png")
+    plot_decision_boundary_3d(G_3D_overlap, gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train, "Gaussian 3D Overlap - Simple Network", "G_3D_overlap_boundary.png")
+    plot_decision_boundary_3d(G_3D_wide, gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train, "Gaussian 3D Wide - Simple Network", "G_3D_wide_boundary.png")
+
+    plot_decision_boundary_2d(M_2D_narrow, moons_2d_narrow_X_train, moons_2d_narrow_Y_train, "Moon 2D Narrow - Simple Network", "M_2D_narrow_boundary.png")
+    plot_decision_boundary_2d(M_2D_overlap, moons_2d_overlap_X_train, moons_2d_overlap_Y_train, "Moon 2D Overlap - Simple Network", "M_2D_overlap_boundary.png")
+    plot_decision_boundary_2d(M_2D_wide, moons_2d_wide_X_train, moons_2d_wide_Y_train, "Moon 2D Wide - Simple Network", "M_2D_wide_boundary.png")
+
+
+    # ============================================================
+    # COMPLEX NETWORK DECISION BOUNDARIES
+    # ============================================================
+
+    complex_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "complex_network_figures")
+    os.makedirs(complex_directory, exist_ok=True)
+    results.DIRECTORY = complex_directory
+
+    G_2D_narrow = get_best_network(gaussian_2d_narrow_complex)
+    G_2D_overlap = get_best_network(gaussian_2d_overlap_complex)
+    G_2D_wide = get_best_network(gaussian_2d_wide_complex)
+    G_3D_narrow = get_best_network(gaussian_3d_narrow_complex)
+    G_3D_overlap = get_best_network(gaussian_3d_overlap_complex)
+    G_3D_wide = get_best_network(gaussian_3d_wide_complex)
+    M_2D_narrow = get_best_network(moon_2d_narrow_complex)
+    M_2D_overlap = get_best_network(moon_2d_overlap_complex)
+    M_2D_wide = get_best_network(moon_2d_wide_complex)
+
+    plot_decision_boundary_2d(G_2D_narrow, gaussian_2d_narrow_X_train, gaussian_2d_narrow_Y_train, "Gaussian 2D Narrow - Complex Network", "G_2D_narrow_boundary.png")
+    plot_decision_boundary_2d(G_2D_overlap, gaussian_2d_overlap_X_train, gaussian_2d_overlap_Y_train, "Gaussian 2D Overlap - Complex Network", "G_2D_overlap_boundary.png")
+    plot_decision_boundary_2d(G_2D_wide, gaussian_2d_wide_X_train, gaussian_2d_wide_Y_train, "Gaussian 2D Wide - Complex Network", "G_2D_wide_boundary.png")
+
+    plot_decision_boundary_3d(G_3D_narrow, gaussian_3d_narrow_X_train, gaussian_3d_narrow_Y_train, "Gaussian 3D Narrow - Complex Network", "G_3D_narrow_boundary.png")
+    plot_decision_boundary_3d(G_3D_overlap, gaussian_3d_overlap_X_train, gaussian_3d_overlap_Y_train, "Gaussian 3D Overlap - Complex Network", "G_3D_overlap_boundary.png")
+    plot_decision_boundary_3d(G_3D_wide, gaussian_3d_wide_X_train, gaussian_3d_wide_Y_train, "Gaussian 3D Wide - Complex Network", "G_3D_wide_boundary.png")
+
+    plot_decision_boundary_2d(M_2D_narrow, moons_2d_narrow_X_train, moons_2d_narrow_Y_train, "Moon 2D Narrow - Complex Network", "M_2D_narrow_boundary.png")
+    plot_decision_boundary_2d(M_2D_overlap, moons_2d_overlap_X_train, moons_2d_overlap_Y_train, "Moon 2D Overlap - Complex Network", "M_2D_overlap_boundary.png")
+    plot_decision_boundary_2d(M_2D_wide, moons_2d_wide_X_train, moons_2d_wide_Y_train, "Moon 2D Wide - Complex Network", "M_2D_wide_boundary.png")

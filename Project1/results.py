@@ -84,7 +84,7 @@ def plot_validation_accuracy(dataset_names, all_results):
 
     plt.xlabel("Dataset")
     plt.ylabel("Average Validation Accuracy")
-    plt.title("Average Validation Accuracy Across 10 Repetitions")
+    plt.title("Average Validation Accuracy Across Some Repetitions")
     plt.ylim(0, 1)
     plt.xticks(rotation=45, ha="right")
 
@@ -93,67 +93,77 @@ def plot_validation_accuracy(dataset_names, all_results):
     plt.show()
 
 
-def plot_average_cost(dataset_names, all_results):
-    plt.figure(figsize=(12, 6))
+def plot_average_cost(dataset_names, all_results, network_name, file_name):
+    plt.figure(figsize=(12, 7))
 
     for i in range(len(dataset_names)):
-        averages = average_results(all_results[i])
-        average_costs = averages[3]
+        average_costs = average_results(all_results[i])[3]
 
-        epochs = []
-        for epoch in range(len(average_costs)):
-            epochs.append(epoch)
-
-        plt.plot(epochs, average_costs, label=dataset_names[i])
+        # plot every 5th epoch to make rapid oscillations readable
+        step = 5
+        plt.plot(range(0, len(average_costs), step), average_costs[::step], label=dataset_names[i])
 
     plt.xlabel("Epoch")
     plt.ylabel("Average Cost")
-    plt.title("Average Cost Across 10 Repetitions")
+    plt.title(network_name + " - Average Cost for All Datasets")
+    plt.ylim(0, 1.0)
+    plt.grid(alpha=0.25)
     plt.legend()
-
     plt.tight_layout()
-    plt.savefig(os.path.join(DIRECTORY, "average_cost.png"))
-    plt.show()
 
+    plt.savefig(os.path.join(DIRECTORY, file_name))
+    plt.close()
+
+
+def plot_network_cost_comparison(dataset_name, simple_results, complex_results, file_name):
+    simple_costs = average_results(simple_results)[3]
+    complex_costs = average_results(complex_results)[3]
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(len(simple_costs)), simple_costs, label="Simple Network")
+    plt.plot(range(len(complex_costs)), complex_costs, label="Complex Network")
+
+    # determine zoom from costs after first 10 epochs
+    zoom_costs = simple_costs[10:] + complex_costs[10:]
+    y_min = min(zoom_costs)
+    y_max = max(zoom_costs)
+    padding = (y_max - y_min) * 0.10
+
+    plt.ylim(max(0, y_min - padding), y_max + padding)
+
+    plt.xlabel("Epoch")
+    plt.ylabel("Average Cost")
+    plt.title(dataset_name + " - Simple vs Complex Network Cost")
+    plt.grid(alpha=0.25)
+    plt.legend()
+    plt.tight_layout()
+
+    plt.savefig(os.path.join(DIRECTORY, file_name))
+    plt.close()
 
 
 
 import csv
 
 
-def save_results_csv(dataset_names, all_results):
-
-    file_path = os.path.join(DIRECTORY, "results_data.csv")
+def save_results_csv(dataset_names, all_results, file_name):
+    file_path = os.path.join(DIRECTORY, file_name)
 
     with open(file_path, "w", newline="") as file:
         writer = csv.writer(file)
-
-        writer.writerow([
-            "Dataset",
-            "Repetition",
-            "Epoch",
-            "Cost",
-            "Training Accuracy",
-            "Validation Accuracy"
-        ])
+        writer.writerow(["Dataset", "Repetition", "Epoch", "Cost", "Training Accuracy", "Validation Accuracy"])
 
         for i in range(len(dataset_names)):
             for repetition in range(len(all_results[i])):
-
                 result = all_results[i][repetition]
-
                 training_accuracy = result[0]
                 validation_accuracy = result[1]
                 costs = result[3]
 
                 for epoch in range(len(costs)):
                     writer.writerow([
-                        dataset_names[i],
-                        repetition + 1,
-                        epoch,
-                        costs[epoch],
-                        training_accuracy,
-                        validation_accuracy
+                        dataset_names[i], repetition + 1, epoch, costs[epoch],
+                        training_accuracy, validation_accuracy
                     ])
 
 
@@ -162,6 +172,16 @@ def save_results_csv(dataset_names, all_results):
 
 
 def plot_decision_boundary_2d(network, X, Y, dataset_name, file_name):
+
+    # verify that plotted network matches plotted data
+    data_predictions = network.predict(X)
+
+    correct = 0
+    for m in range(len(X)):
+        if data_predictions[m] == Y[m]:
+            correct += 1
+
+    # print(dataset_name, "PLOTTED NETWORK ACCURACY:", correct / len(X))
 
     # get area around all the data so we know where to test the network
     x1_min = min(example[0] for example in X) - 1
@@ -306,3 +326,9 @@ def plot_decision_boundary_3d(network, X, Y, dataset_name, file_name):
     plt.tight_layout()
     plt.savefig(os.path.join(DIRECTORY, file_name))
     plt.close()
+
+
+import sys
+
+def save_terminal_output(file_name):
+    sys.stdout = open(file_name, "w")

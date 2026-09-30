@@ -1,0 +1,758 @@
+
+
+==================================================
+RUNNING SIMPLE NETWORK
+==================================================
+
+========================================
+SIMPLE NETWORK - REPETITION: 1
+========================================
+
+=========== GAUSSIAN 2D NARROW ===========
+Epoch/Iteration: 0 Cost: 2.3274469077516367
+Epoch/Iteration: 100 Cost: 0.6710526770794046
+Epoch/Iteration: 200 Cost: 0.6641613038167508
+Epoch/Iteration: 300 Cost: 0.6574356348288417
+Epoch/Iteration: 400 Cost: 0.6508296506132936
+Epoch/Iteration: 500 Cost: 0.644306232768743
+Epoch/Iteration: 600 Cost: 0.6378347198673067
+Epoch/Iteration: 700 Cost: 0.6313892234591633
+Epoch/Iteration: 800 Cost: 0.6249474544437302
+Epoch/Iteration: 900 Cost: 0.6184898986931094
+Epoch/Iteration: 1000 Cost: 0.6119992361234325
+Epoch/Iteration: 1100 Cost: 0.6054599325795194
+Epoch/Iteration: 1200 Cost: 0.5988579566380807
+Epoch/Iteration: 1300 Cost: 0.5921805883478943
+Epoch/Iteration: 1400 Cost: 0.5854162968166017
+Epoch/Iteration: 1500 Cost: 0.5785546701647263
+Epoch/Iteration: 1600 Cost: 0.5715863857990532
+Epoch/Iteration: 1700 Cost: 0.5645032119179387
+Epoch/Iteration: 1800 Cost: 0.5572980331144722
+Epoch/Iteration: 1900 Cost: 0.5499648942001456
+Epoch/Iteration: 2000 Cost: 0.5424990571449432
+Epoch/Iteration: 2100 Cost: 0.5348970664710622
+Epoch/Iteration: 2200 Cost: 0.5271568186591287
+Epoch/Iteration: 2300 Cost: 0.5192776312154026
+Epoch/Iteration: 2400 Cost: 0.5112603070781493
+Epoch/Iteration: 2500 Cost: 0.503107190072398
+Epoch/Iteration: 2600 Cost: 0.4948222072081602
+Epoch/Iteration: 2700 Cost: 0.48641089380371544
+Epoch/Iteration: 2800 Cost: 0.47788039773990826
+Epoch/Iteration: 2900 Cost: 0.46923945964024505
+Final Cost: 0.46049836643844666
+Training Accuracy: 0.9125
+Validation Accuracy: 0.9
+
+=========== GAUSSIAN 2D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 2.939403677119041
+Epoch/Iteration: 100 Cost: 0.6872830873358198
+Epoch/Iteration: 200 Cost: 0.6857629812763087
+Epoch/Iteration: 300 Cost: 0.684250085647705
+Epoch/Iteration: 400 Cost: 0.6827443573182983
+Epoch/Iteration: 500 Cost: 0.6812457533878546
+Epoch/Iteration: 600 Cost: 0.6797542311869053
+Epoch/Iteration: 700 Cost: 0.6782697482760516
+Epoch/Iteration: 800 Cost: 0.6767922624452736
+Epoch/Iteration: 900 Cost: 0.675321731713262
+Epoch/Iteration: 1000 Cost: 0.6738581143267428
+Epoch/Iteration: 1100 Cost: 0.6724013687598251
+Epoch/Iteration: 1200 Cost: 0.6709514537133552
+Epoch/Iteration: 1300 Cost: 0.6695083281142715
+Epoch/Iteration: 1400 Cost: 0.6680719511149761
+Epoch/Iteration: 1500 Cost: 0.6666422820927119
+Epoch/Iteration: 1600 Cost: 0.6652192806489446
+Epoch/Iteration: 1700 Cost: 0.6638029066087506
+Epoch/Iteration: 1800 Cost: 0.6623931200202178
+Epoch/Iteration: 1900 Cost: 0.660989881153845
+Epoch/Iteration: 2000 Cost: 0.6595931505019502
+Epoch/Iteration: 2100 Cost: 0.6582028887780828
+Epoch/Iteration: 2200 Cost: 0.656819056916444
+Epoch/Iteration: 2300 Cost: 0.655441616071307
+Epoch/Iteration: 2400 Cost: 0.6540705276164435
+Epoch/Iteration: 2500 Cost: 0.6527057531445547
+Epoch/Iteration: 2600 Cost: 0.6513472544667056
+Epoch/Iteration: 2700 Cost: 0.6499949936117592
+Epoch/Iteration: 2800 Cost: 0.6486489328258179
+Epoch/Iteration: 2900 Cost: 0.6473090345716652
+Final Cost: 0.645975261528209
+Training Accuracy: 0.59375
+Validation Accuracy: 0.75
+
+=========== GAUSSIAN 2D WIDE ===========
+Epoch/Iteration: 0 Cost: 10.924299755004137
+Epoch/Iteration: 100 Cost: 0.6664004225024777
+Epoch/Iteration: 200 Cost: 0.6597905146546879
+Epoch/Iteration: 300 Cost: 0.653291681309684
+Epoch/Iteration: 400 Cost: 0.6469019010399656
+Epoch/Iteration: 500 Cost: 0.6406191680686868
+Epoch/Iteration: 600 Cost: 0.6344414928229878
+Epoch/Iteration: 700 Cost: 0.628366902511379
+Epoch/Iteration: 800 Cost: 0.6223934417217502
+Epoch/Iteration: 900 Cost: 0.6165191730366264
+Epoch/Iteration: 1000 Cost: 0.6107421776623156
+Epoch/Iteration: 1100 Cost: 0.6050605560685877
+Epoch/Iteration: 1200 Cost: 0.5994724286354816
+Epoch/Iteration: 1300 Cost: 0.5939759363038354
+Epoch/Iteration: 1400 Cost: 0.5885692412260523
+Epoch/Iteration: 1500 Cost: 0.5832505274136028
+Epoch/Iteration: 1600 Cost: 0.5780180013777338
+Epoch/Iteration: 1700 Cost: 0.5728698927598193
+Epoch/Iteration: 1800 Cost: 0.5678044549478415
+Epoch/Iteration: 1900 Cost: 0.5628199656754622
+Epoch/Iteration: 2000 Cost: 0.5579147276002614
+Epoch/Iteration: 2100 Cost: 0.5530870688577691
+Epoch/Iteration: 2200 Cost: 0.5483353435880607
+Epoch/Iteration: 2300 Cost: 0.5436579324318231
+Epoch/Iteration: 2400 Cost: 0.5390532429929984
+Epoch/Iteration: 2500 Cost: 0.5345197102653036
+Epoch/Iteration: 2600 Cost: 0.5300557970201916
+Epoch/Iteration: 2700 Cost: 0.5256599941540625
+Epoch/Iteration: 2800 Cost: 0.5213308209928318
+Epoch/Iteration: 2900 Cost: 0.517066825552275
+Final Cost: 0.5128665847528668
+Training Accuracy: 0.8375
+Validation Accuracy: 0.825
+
+=========== GAUSSIAN 3D NARROW ===========
+Epoch/Iteration: 0 Cost: 2.633779625874906
+Epoch/Iteration: 100 Cost: 0.624035794326232
+Epoch/Iteration: 200 Cost: 0.6149587826672522
+Epoch/Iteration: 300 Cost: 0.6058483118419943
+Epoch/Iteration: 400 Cost: 0.5970521884674065
+Epoch/Iteration: 500 Cost: 0.5884856471397261
+Epoch/Iteration: 600 Cost: 0.5800481878686947
+Epoch/Iteration: 700 Cost: 0.571593726628067
+Epoch/Iteration: 800 Cost: 0.5632516358039176
+Epoch/Iteration: 900 Cost: 0.554765866622138
+Epoch/Iteration: 1000 Cost: 0.5463444807191432
+Epoch/Iteration: 1100 Cost: 0.537915985806631
+Epoch/Iteration: 1200 Cost: 0.5294011657111999
+Epoch/Iteration: 1300 Cost: 0.5207837675562367
+Epoch/Iteration: 1400 Cost: 0.5122994363927498
+Epoch/Iteration: 1500 Cost: 0.503776269981888
+Epoch/Iteration: 1600 Cost: 0.49517997017477156
+Epoch/Iteration: 1700 Cost: 0.48625219694400934
+Epoch/Iteration: 1800 Cost: 0.4775120500068716
+Epoch/Iteration: 1900 Cost: 0.46878494584137026
+Epoch/Iteration: 2000 Cost: 0.4601058464793638
+Epoch/Iteration: 2100 Cost: 0.4515187979646216
+Epoch/Iteration: 2200 Cost: 0.4429591067915194
+Epoch/Iteration: 2300 Cost: 0.43443261136288835
+Epoch/Iteration: 2400 Cost: 0.42594624540986387
+Epoch/Iteration: 2500 Cost: 0.41753163462426857
+Epoch/Iteration: 2600 Cost: 0.40923658415933134
+Epoch/Iteration: 2700 Cost: 0.40052782540222004
+Epoch/Iteration: 2800 Cost: 0.39203631070859907
+Epoch/Iteration: 2900 Cost: 0.3836753514886023
+Final Cost: 0.3754180229968757
+Training Accuracy: 0.91875
+Validation Accuracy: 0.675
+
+=========== GAUSSIAN 3D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 4.725063371138719
+Epoch/Iteration: 100 Cost: 0.7470272743075882
+Epoch/Iteration: 200 Cost: 0.7245424349550446
+Epoch/Iteration: 300 Cost: 0.7089313071775616
+Epoch/Iteration: 400 Cost: 0.6974235784977133
+Epoch/Iteration: 500 Cost: 0.6884658021521857
+Epoch/Iteration: 600 Cost: 0.6811496805884466
+Epoch/Iteration: 700 Cost: 0.6749224850795581
+Epoch/Iteration: 800 Cost: 0.6694355430453026
+Epoch/Iteration: 900 Cost: 0.6644620484578898
+Epoch/Iteration: 1000 Cost: 0.6598508166540195
+Epoch/Iteration: 1100 Cost: 0.65549931473649
+Epoch/Iteration: 1200 Cost: 0.6513373698428057
+Epoch/Iteration: 1300 Cost: 0.6473169714622171
+Epoch/Iteration: 1400 Cost: 0.6434056455432376
+Epoch/Iteration: 1500 Cost: 0.6395819729537184
+Epoch/Iteration: 1600 Cost: 0.6358324262696183
+Epoch/Iteration: 1700 Cost: 0.632149040405501
+Epoch/Iteration: 1800 Cost: 0.628527632494908
+Epoch/Iteration: 1900 Cost: 0.6249664059861936
+Epoch/Iteration: 2000 Cost: 0.6214648457002172
+Epoch/Iteration: 2100 Cost: 0.6180228524795865
+Epoch/Iteration: 2200 Cost: 0.6146400884543521
+Epoch/Iteration: 2300 Cost: 0.6113155135277861
+Epoch/Iteration: 2400 Cost: 0.6080470952407845
+Epoch/Iteration: 2500 Cost: 0.6048316714321212
+Epoch/Iteration: 2600 Cost: 0.6016649409868302
+Epoch/Iteration: 2700 Cost: 0.598541554556485
+Epoch/Iteration: 2800 Cost: 0.595455275696567
+Epoch/Iteration: 2900 Cost: 0.5923991838461602
+Final Cost: 0.5893658937697215
+Training Accuracy: 0.7
+Validation Accuracy: 0.575
+
+=========== GAUSSIAN 3D WIDE ===========
+Epoch/Iteration: 0 Cost: 3.5701620317836245
+Epoch/Iteration: 100 Cost: 0.6897047133890415
+Epoch/Iteration: 200 Cost: 0.6658228008041853
+Epoch/Iteration: 300 Cost: 0.6358320102817043
+Epoch/Iteration: 400 Cost: 0.60161088667423
+Epoch/Iteration: 500 Cost: 0.5711241987105729
+Epoch/Iteration: 600 Cost: 0.5460078854372808
+Epoch/Iteration: 700 Cost: 0.5246801097891388
+Epoch/Iteration: 800 Cost: 0.5050458978118667
+Epoch/Iteration: 900 Cost: 0.4860741428388513
+Epoch/Iteration: 1000 Cost: 0.4676061912456918
+Epoch/Iteration: 1100 Cost: 0.4495457050942216
+Epoch/Iteration: 1200 Cost: 0.4318403068253146
+Epoch/Iteration: 1300 Cost: 0.41477755912422165
+Epoch/Iteration: 1400 Cost: 0.39825510188777435
+Epoch/Iteration: 1500 Cost: 0.3822912375504432
+Epoch/Iteration: 1600 Cost: 0.36684525475295254
+Epoch/Iteration: 1700 Cost: 0.3520963501969726
+Epoch/Iteration: 1800 Cost: 0.3379171490411236
+Epoch/Iteration: 1900 Cost: 0.3243598223322307
+Epoch/Iteration: 2000 Cost: 0.3112285145870847
+Epoch/Iteration: 2100 Cost: 0.29866805713003197
+Epoch/Iteration: 2200 Cost: 0.2868129416253445
+Epoch/Iteration: 2300 Cost: 0.27559641343398206
+Epoch/Iteration: 2400 Cost: 0.2650418009413298
+Epoch/Iteration: 2500 Cost: 0.25505962025850804
+Epoch/Iteration: 2600 Cost: 0.2456008760818988
+Epoch/Iteration: 2700 Cost: 0.23671325939389182
+Epoch/Iteration: 2800 Cost: 0.22823497891038533
+Epoch/Iteration: 2900 Cost: 0.2201802201664918
+Final Cost: 0.2125237947782091
+Training Accuracy: 1.0
+Validation Accuracy: 1.0
+
+=========== MOON 2D NARROW ===========
+Epoch/Iteration: 0 Cost: 0.8325292351852457
+Epoch/Iteration: 100 Cost: 0.7649045596127843
+Epoch/Iteration: 200 Cost: 0.7192108127811465
+Epoch/Iteration: 300 Cost: 0.6846750377518928
+Epoch/Iteration: 400 Cost: 0.6563325733085031
+Epoch/Iteration: 500 Cost: 0.6314662358279857
+Epoch/Iteration: 600 Cost: 0.6085562390417255
+Epoch/Iteration: 700 Cost: 0.5869016043023327
+Epoch/Iteration: 800 Cost: 0.5662407913371159
+Epoch/Iteration: 900 Cost: 0.5466063633156277
+Epoch/Iteration: 1000 Cost: 0.5279725998625691
+Epoch/Iteration: 1100 Cost: 0.5103891768731404
+Epoch/Iteration: 1200 Cost: 0.4935938124097634
+Epoch/Iteration: 1300 Cost: 0.47757197332475065
+Epoch/Iteration: 1400 Cost: 0.46246748806532856
+Epoch/Iteration: 1500 Cost: 0.4483297369522842
+Epoch/Iteration: 1600 Cost: 0.43521193973304667
+Epoch/Iteration: 1700 Cost: 0.4228859510309027
+Epoch/Iteration: 1800 Cost: 0.41134027676819757
+Epoch/Iteration: 1900 Cost: 0.4004387742830127
+Epoch/Iteration: 2000 Cost: 0.39029820578659036
+Epoch/Iteration: 2100 Cost: 0.38084423776344534
+Epoch/Iteration: 2200 Cost: 0.3720865564274558
+Epoch/Iteration: 2300 Cost: 0.364196199648117
+Epoch/Iteration: 2400 Cost: 0.3570973058997422
+Epoch/Iteration: 2500 Cost: 0.35046526146048373
+Epoch/Iteration: 2600 Cost: 0.3443168139792398
+Epoch/Iteration: 2700 Cost: 0.3385975443962845
+Epoch/Iteration: 2800 Cost: 0.3332505046651795
+Epoch/Iteration: 2900 Cost: 0.3282901291957813
+Final Cost: 0.32362800029834965
+Training Accuracy: 0.84125
+Validation Accuracy: 0.83
+
+=========== MOON 2D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 0.7108338064084688
+Epoch/Iteration: 100 Cost: 0.6566916821228266
+Epoch/Iteration: 200 Cost: 0.6205103215454989
+Epoch/Iteration: 300 Cost: 0.5946721564050375
+Epoch/Iteration: 400 Cost: 0.5759079993028742
+Epoch/Iteration: 500 Cost: 0.5614851294504031
+Epoch/Iteration: 600 Cost: 0.550047047374573
+Epoch/Iteration: 700 Cost: 0.5405826191492704
+Epoch/Iteration: 800 Cost: 0.5324769639103571
+Epoch/Iteration: 900 Cost: 0.5252270398577883
+Epoch/Iteration: 1000 Cost: 0.5186850082051343
+Epoch/Iteration: 1100 Cost: 0.5126072378565238
+Epoch/Iteration: 1200 Cost: 0.5069187849951823
+Epoch/Iteration: 1300 Cost: 0.5015557464073037
+Epoch/Iteration: 1400 Cost: 0.49648975656756344
+Epoch/Iteration: 1500 Cost: 0.491660004028487
+Epoch/Iteration: 1600 Cost: 0.4870526641311589
+Epoch/Iteration: 1700 Cost: 0.4826578446047576
+Epoch/Iteration: 1800 Cost: 0.4784817508396879
+Epoch/Iteration: 1900 Cost: 0.47446670284375775
+Epoch/Iteration: 2000 Cost: 0.4706132142478872
+Epoch/Iteration: 2100 Cost: 0.4669181104785799
+Epoch/Iteration: 2200 Cost: 0.46336585911824196
+Epoch/Iteration: 2300 Cost: 0.45989301377468683
+Epoch/Iteration: 2400 Cost: 0.45650999203125686
+Epoch/Iteration: 2500 Cost: 0.45322476555107694
+Epoch/Iteration: 2600 Cost: 0.4500377956944371
+Epoch/Iteration: 2700 Cost: 0.446936921120381
+Epoch/Iteration: 2800 Cost: 0.44393285677866823
+Epoch/Iteration: 2900 Cost: 0.4409885549268296
+Final Cost: 0.4381104400742099
+Training Accuracy: 0.78375
+Validation Accuracy: 0.765
+
+=========== MOON 2D WIDE ===========
+Epoch/Iteration: 0 Cost: 0.7815322937013633
+Epoch/Iteration: 100 Cost: 0.6837598583636806
+Epoch/Iteration: 200 Cost: 0.6293494722898793
+Epoch/Iteration: 300 Cost: 0.5929987172410566
+Epoch/Iteration: 400 Cost: 0.5773570502169915
+Epoch/Iteration: 500 Cost: 0.5621923890571985
+Epoch/Iteration: 600 Cost: 0.5472266726992708
+Epoch/Iteration: 700 Cost: 0.5325475331639524
+Epoch/Iteration: 800 Cost: 0.5181358331095843
+Epoch/Iteration: 900 Cost: 0.5044390123406285
+Epoch/Iteration: 1000 Cost: 0.4912942682955832
+Epoch/Iteration: 1100 Cost: 0.4785924449099668
+Epoch/Iteration: 1200 Cost: 0.4663403007856307
+Epoch/Iteration: 1300 Cost: 0.45468924510973574
+Epoch/Iteration: 1400 Cost: 0.44353731717718475
+Epoch/Iteration: 1500 Cost: 0.432844864218715
+Epoch/Iteration: 1600 Cost: 0.4225432246189848
+Epoch/Iteration: 1700 Cost: 0.4125276151107723
+Epoch/Iteration: 1800 Cost: 0.4029504633759391
+Epoch/Iteration: 1900 Cost: 0.3939144860222115
+Epoch/Iteration: 2000 Cost: 0.38579027512778213
+Epoch/Iteration: 2100 Cost: 0.3785751549985275
+Epoch/Iteration: 2200 Cost: 0.3719643705074891
+Epoch/Iteration: 2300 Cost: 0.3658733007917379
+Epoch/Iteration: 2400 Cost: 0.36024530491522144
+Epoch/Iteration: 2500 Cost: 0.35502547637204784
+Epoch/Iteration: 2600 Cost: 0.3501717992522039
+Epoch/Iteration: 2700 Cost: 0.3456353373142988
+Epoch/Iteration: 2800 Cost: 0.3413411470299414
+Epoch/Iteration: 2900 Cost: 0.3372537831134359
+Final Cost: 0.3333748659317288
+Training Accuracy: 0.83125
+Validation Accuracy: 0.81
+
+
+==================================================
+RUNNING COMPLEX NETWORK
+==================================================
+
+========================================
+COMPLEX NETWORK - REPETITION: 1
+========================================
+
+=========== GAUSSIAN 2D NARROW ===========
+Epoch/Iteration: 0 Cost: 1.3197048417247332
+Epoch/Iteration: 100 Cost: 0.6461530138122751
+Epoch/Iteration: 200 Cost: 0.6413939192376037
+Epoch/Iteration: 300 Cost: 0.6365469606331234
+Epoch/Iteration: 400 Cost: 0.6318356398228648
+Epoch/Iteration: 500 Cost: 0.627137134461643
+Epoch/Iteration: 600 Cost: 0.622491716762276
+Epoch/Iteration: 700 Cost: 0.6178266743844997
+Epoch/Iteration: 800 Cost: 0.6131046739965618
+Epoch/Iteration: 900 Cost: 0.6083231691025893
+Epoch/Iteration: 1000 Cost: 0.6035535002492074
+Epoch/Iteration: 1100 Cost: 0.5987926753936261
+Epoch/Iteration: 1200 Cost: 0.5940031272215911
+Epoch/Iteration: 1300 Cost: 0.5891770356134625
+Epoch/Iteration: 1400 Cost: 0.5842890185107812
+Epoch/Iteration: 1500 Cost: 0.5793447920803654
+Epoch/Iteration: 1600 Cost: 0.5743407996712581
+Epoch/Iteration: 1700 Cost: 0.5689835314845201
+Epoch/Iteration: 1800 Cost: 0.5632536368758356
+Epoch/Iteration: 1900 Cost: 0.5574266208979781
+Epoch/Iteration: 2000 Cost: 0.5515068604385492
+Epoch/Iteration: 2100 Cost: 0.5454915763969994
+Epoch/Iteration: 2200 Cost: 0.5386071322321742
+Epoch/Iteration: 2300 Cost: 0.5231860839689084
+Epoch/Iteration: 2400 Cost: 0.5033132523619703
+Epoch/Iteration: 2500 Cost: 0.49246166700782057
+Epoch/Iteration: 2600 Cost: 0.4811538037723895
+Epoch/Iteration: 2700 Cost: 0.46931631407892443
+Epoch/Iteration: 2800 Cost: 0.45660637061868237
+Epoch/Iteration: 2900 Cost: 0.44361127197979694
+Final Cost: 0.43010527520193687
+Training Accuracy: 0.89375
+Validation Accuracy: 0.825
+
+=========== GAUSSIAN 2D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 1.819136786612051
+Epoch/Iteration: 100 Cost: 0.6865966994804524
+Epoch/Iteration: 200 Cost: 0.6842406658129889
+Epoch/Iteration: 300 Cost: 0.681919239680311
+Epoch/Iteration: 400 Cost: 0.6796277347726981
+Epoch/Iteration: 500 Cost: 0.6773619183153696
+Epoch/Iteration: 600 Cost: 0.675117930347594
+Epoch/Iteration: 700 Cost: 0.6728922201704608
+Epoch/Iteration: 800 Cost: 0.6706814958733426
+Epoch/Iteration: 900 Cost: 0.6684826839527986
+Epoch/Iteration: 1000 Cost: 0.6662928967942333
+Epoch/Iteration: 1100 Cost: 0.6641094063283572
+Epoch/Iteration: 1200 Cost: 0.6619296225667829
+Epoch/Iteration: 1300 Cost: 0.6597510760088513
+Epoch/Iteration: 1400 Cost: 0.6575714031262111
+Epoch/Iteration: 1500 Cost: 0.6553883342946448
+Epoch/Iteration: 1600 Cost: 0.65319968366946
+Epoch/Iteration: 1700 Cost: 0.6510100365326019
+Epoch/Iteration: 1800 Cost: 0.6488444964428159
+Epoch/Iteration: 1900 Cost: 0.6466678585502852
+Epoch/Iteration: 2000 Cost: 0.6444783684953321
+Epoch/Iteration: 2100 Cost: 0.6422745001170409
+Epoch/Iteration: 2200 Cost: 0.6400546890320037
+Epoch/Iteration: 2300 Cost: 0.6378174629843112
+Epoch/Iteration: 2400 Cost: 0.6355611736122764
+Epoch/Iteration: 2500 Cost: 0.633284385799946
+Epoch/Iteration: 2600 Cost: 0.6309855660636204
+Epoch/Iteration: 2700 Cost: 0.6286633518480699
+Epoch/Iteration: 2800 Cost: 0.6263162701250328
+Epoch/Iteration: 2900 Cost: 0.6239427997706442
+Final Cost: 0.6215416724163931
+Training Accuracy: 0.71875
+Validation Accuracy: 0.8
+
+=========== GAUSSIAN 2D WIDE ===========
+Epoch/Iteration: 0 Cost: 4.626201595601691
+Epoch/Iteration: 100 Cost: 0.7125646442630812
+Epoch/Iteration: 200 Cost: 0.6530118314338883
+Epoch/Iteration: 300 Cost: 0.629973780552901
+Epoch/Iteration: 400 Cost: 0.6164276773595974
+Epoch/Iteration: 500 Cost: 0.6065091277126465
+Epoch/Iteration: 600 Cost: 0.596051672952784
+Epoch/Iteration: 700 Cost: 0.5856164098283015
+Epoch/Iteration: 800 Cost: 0.5753485246067966
+Epoch/Iteration: 900 Cost: 0.5651753971889999
+Epoch/Iteration: 1000 Cost: 0.5550627696279214
+Epoch/Iteration: 1100 Cost: 0.5449862430904665
+Epoch/Iteration: 1200 Cost: 0.5349252986412059
+Epoch/Iteration: 1300 Cost: 0.5248614825008207
+Epoch/Iteration: 1400 Cost: 0.5147774393092146
+Epoch/Iteration: 1500 Cost: 0.5046563135311901
+Epoch/Iteration: 1600 Cost: 0.4944813608327875
+Epoch/Iteration: 1700 Cost: 0.4842357008735643
+Epoch/Iteration: 1800 Cost: 0.4739021799004453
+Epoch/Iteration: 1900 Cost: 0.4634633291647988
+Epoch/Iteration: 2000 Cost: 0.4529014142088618
+Epoch/Iteration: 2100 Cost: 0.44219857476449825
+Epoch/Iteration: 2200 Cost: 0.431337057241731
+Epoch/Iteration: 2300 Cost: 0.4202995423536658
+Epoch/Iteration: 2400 Cost: 0.40906956960773677
+Epoch/Iteration: 2500 Cost: 0.39763205821816305
+Epoch/Iteration: 2600 Cost: 0.3859739203901266
+Epoch/Iteration: 2700 Cost: 0.3740847578416729
+Epoch/Iteration: 2800 Cost: 0.3619576259396358
+Epoch/Iteration: 2900 Cost: 0.34958984223761796
+Final Cost: 0.3369838081499785
+Training Accuracy: 0.85
+Validation Accuracy: 0.875
+
+=========== GAUSSIAN 3D NARROW ===========
+Epoch/Iteration: 0 Cost: 1.8206143494676996
+Epoch/Iteration: 100 Cost: 0.6493220724584143
+Epoch/Iteration: 200 Cost: 0.6349601663209397
+Epoch/Iteration: 300 Cost: 0.6287598540389412
+Epoch/Iteration: 400 Cost: 0.6227942479919947
+Epoch/Iteration: 500 Cost: 0.6168326819218399
+Epoch/Iteration: 600 Cost: 0.6108989131078942
+Epoch/Iteration: 700 Cost: 0.6051328654805903
+Epoch/Iteration: 800 Cost: 0.5993994943688173
+Epoch/Iteration: 900 Cost: 0.593654368789367
+Epoch/Iteration: 1000 Cost: 0.5878656133443771
+Epoch/Iteration: 1100 Cost: 0.582116124473329
+Epoch/Iteration: 1200 Cost: 0.5763864082273267
+Epoch/Iteration: 1300 Cost: 0.5706493055982149
+Epoch/Iteration: 1400 Cost: 0.5648477089457072
+Epoch/Iteration: 1500 Cost: 0.5590110356092299
+Epoch/Iteration: 1600 Cost: 0.5531214222551752
+Epoch/Iteration: 1700 Cost: 0.5471990442339905
+Epoch/Iteration: 1800 Cost: 0.5412591631376577
+Epoch/Iteration: 1900 Cost: 0.5352785318063746
+Epoch/Iteration: 2000 Cost: 0.5286518963602223
+Epoch/Iteration: 2100 Cost: 0.5219843456720977
+Epoch/Iteration: 2200 Cost: 0.51280882376947
+Epoch/Iteration: 2300 Cost: 0.5027842336651974
+Epoch/Iteration: 2400 Cost: 0.49343942449442196
+Epoch/Iteration: 2500 Cost: 0.48221566476447053
+Epoch/Iteration: 2600 Cost: 0.4678900255881289
+Epoch/Iteration: 2700 Cost: 0.4556711964572833
+Epoch/Iteration: 2800 Cost: 0.4435978111313557
+Epoch/Iteration: 2900 Cost: 0.43156590498349673
+Final Cost: 0.4199127628244253
+Training Accuracy: 0.8875
+Validation Accuracy: 0.775
+
+=========== GAUSSIAN 3D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 0.7593527141409392
+Epoch/Iteration: 100 Cost: 0.6975362385257116
+Epoch/Iteration: 200 Cost: 0.6730549390555719
+Epoch/Iteration: 300 Cost: 0.6602546944451357
+Epoch/Iteration: 400 Cost: 0.6524125161257422
+Epoch/Iteration: 500 Cost: 0.6463658042998863
+Epoch/Iteration: 600 Cost: 0.6403854752885764
+Epoch/Iteration: 700 Cost: 0.6363290975818583
+Epoch/Iteration: 800 Cost: 0.6329108374742165
+Epoch/Iteration: 900 Cost: 0.629911802868495
+Epoch/Iteration: 1000 Cost: 0.6270973994216982
+Epoch/Iteration: 1100 Cost: 0.6243553545171752
+Epoch/Iteration: 1200 Cost: 0.6216378207229265
+Epoch/Iteration: 1300 Cost: 0.6189101216865145
+Epoch/Iteration: 1400 Cost: 0.6161514746336348
+Epoch/Iteration: 1500 Cost: 0.6133507792389125
+Epoch/Iteration: 1600 Cost: 0.6105008665400053
+Epoch/Iteration: 1700 Cost: 0.6075949214654079
+Epoch/Iteration: 1800 Cost: 0.6031107955293455
+Epoch/Iteration: 1900 Cost: 0.5998817291956223
+Epoch/Iteration: 2000 Cost: 0.5966368533913896
+Epoch/Iteration: 2100 Cost: 0.5933703483570358
+Epoch/Iteration: 2200 Cost: 0.5900517014244315
+Epoch/Iteration: 2300 Cost: 0.5866614904511209
+Epoch/Iteration: 2400 Cost: 0.5831923694038477
+Epoch/Iteration: 2500 Cost: 0.5796246505013518
+Epoch/Iteration: 2600 Cost: 0.5759463799586191
+Epoch/Iteration: 2700 Cost: 0.5721473776050885
+Epoch/Iteration: 2800 Cost: 0.5682097863641536
+Epoch/Iteration: 2900 Cost: 0.5641367508987952
+Final Cost: 0.5604260682910592
+Training Accuracy: 0.68125
+Validation Accuracy: 0.55
+
+=========== GAUSSIAN 3D WIDE ===========
+Epoch/Iteration: 0 Cost: 1.879192862737191
+Epoch/Iteration: 100 Cost: 0.6374575883177734
+Epoch/Iteration: 200 Cost: 0.6200517623209596
+Epoch/Iteration: 300 Cost: 0.6036996441732396
+Epoch/Iteration: 400 Cost: 0.5876371816935746
+Epoch/Iteration: 500 Cost: 0.571692490369754
+Epoch/Iteration: 600 Cost: 0.5554394428982263
+Epoch/Iteration: 700 Cost: 0.5388675011184348
+Epoch/Iteration: 800 Cost: 0.5217900728942345
+Epoch/Iteration: 900 Cost: 0.5042986970552438
+Epoch/Iteration: 1000 Cost: 0.4865907718974901
+Epoch/Iteration: 1100 Cost: 0.4685825522656306
+Epoch/Iteration: 1200 Cost: 0.45016691018400473
+Epoch/Iteration: 1300 Cost: 0.4310375854617832
+Epoch/Iteration: 1400 Cost: 0.4108827295387389
+Epoch/Iteration: 1500 Cost: 0.38934911755651547
+Epoch/Iteration: 1600 Cost: 0.3680988132917983
+Epoch/Iteration: 1700 Cost: 0.3467098096872273
+Epoch/Iteration: 1800 Cost: 0.3237523904380444
+Epoch/Iteration: 1900 Cost: 0.30155997115631
+Epoch/Iteration: 2000 Cost: 0.2801367048093021
+Epoch/Iteration: 2100 Cost: 0.25944550884970713
+Epoch/Iteration: 2200 Cost: 0.23871034512017256
+Epoch/Iteration: 2300 Cost: 0.21810753118762355
+Epoch/Iteration: 2400 Cost: 0.19924637697548395
+Epoch/Iteration: 2500 Cost: 0.1820077568101231
+Epoch/Iteration: 2600 Cost: 0.16622258420036196
+Epoch/Iteration: 2700 Cost: 0.1518308343231397
+Epoch/Iteration: 2800 Cost: 0.13878414735223327
+Epoch/Iteration: 2900 Cost: 0.1270038405520274
+Final Cost: 0.11640031855489259
+Training Accuracy: 1.0
+Validation Accuracy: 1.0
+
+=========== MOON 2D NARROW ===========
+Epoch/Iteration: 0 Cost: 0.8318101502887607
+Epoch/Iteration: 100 Cost: 0.7219498187536931
+Epoch/Iteration: 200 Cost: 0.6626689516495412
+Epoch/Iteration: 300 Cost: 0.614025342529597
+Epoch/Iteration: 400 Cost: 0.5640219148747698
+Epoch/Iteration: 500 Cost: 0.5133560305449693
+Epoch/Iteration: 600 Cost: 0.4668137096312829
+Epoch/Iteration: 700 Cost: 0.425868815779831
+Epoch/Iteration: 800 Cost: 0.3908033246313369
+Epoch/Iteration: 900 Cost: 0.3618031746597146
+Epoch/Iteration: 1000 Cost: 0.33854856556188345
+Epoch/Iteration: 1100 Cost: 0.32018236166827374
+Epoch/Iteration: 1200 Cost: 0.30573590323064
+Epoch/Iteration: 1300 Cost: 0.2942448499045508
+Epoch/Iteration: 1400 Cost: 0.2848475198006122
+Epoch/Iteration: 1500 Cost: 0.27708513535699564
+Epoch/Iteration: 1600 Cost: 0.27046690466088
+Epoch/Iteration: 1700 Cost: 0.2648766372414347
+Epoch/Iteration: 1800 Cost: 0.26005087947054395
+Epoch/Iteration: 1900 Cost: 0.25588247177423556
+Epoch/Iteration: 2000 Cost: 0.25226384339417585
+Epoch/Iteration: 2100 Cost: 0.2490601784395103
+Epoch/Iteration: 2200 Cost: 0.24625482727215126
+Epoch/Iteration: 2300 Cost: 0.24377182701846006
+Epoch/Iteration: 2400 Cost: 0.24159373053814484
+Epoch/Iteration: 2500 Cost: 0.23964791522936488
+Epoch/Iteration: 2600 Cost: 0.23787775599215447
+Epoch/Iteration: 2700 Cost: 0.23625238727857967
+Epoch/Iteration: 2800 Cost: 0.23477775149658972
+Epoch/Iteration: 2900 Cost: 0.23348691461004467
+Final Cost: 0.23232436961567995
+Training Accuracy: 0.8875
+Validation Accuracy: 0.89
+
+=========== MOON 2D OVERLAP ===========
+Epoch/Iteration: 0 Cost: 0.798137788505225
+Epoch/Iteration: 100 Cost: 0.7245573453923632
+Epoch/Iteration: 200 Cost: 0.6759793880065393
+Epoch/Iteration: 300 Cost: 0.6409977207086094
+Epoch/Iteration: 400 Cost: 0.6113558795205418
+Epoch/Iteration: 500 Cost: 0.5843739769080856
+Epoch/Iteration: 600 Cost: 0.5587759650753479
+Epoch/Iteration: 700 Cost: 0.5344305583258219
+Epoch/Iteration: 800 Cost: 0.5115144533704439
+Epoch/Iteration: 900 Cost: 0.48972191414083943
+Epoch/Iteration: 1000 Cost: 0.4691586242000011
+Epoch/Iteration: 1100 Cost: 0.45013267134172397
+Epoch/Iteration: 1200 Cost: 0.43249335410188294
+Epoch/Iteration: 1300 Cost: 0.4163244020651453
+Epoch/Iteration: 1400 Cost: 0.40150144758194956
+Epoch/Iteration: 1500 Cost: 0.3880520630345557
+Epoch/Iteration: 1600 Cost: 0.37597410510386614
+Epoch/Iteration: 1700 Cost: 0.36517638364029736
+Epoch/Iteration: 1800 Cost: 0.355541828575968
+Epoch/Iteration: 1900 Cost: 0.34703389014236535
+Epoch/Iteration: 2000 Cost: 0.33948924044994166
+Epoch/Iteration: 2100 Cost: 0.33281057155145044
+Epoch/Iteration: 2200 Cost: 0.3269419177508351
+Epoch/Iteration: 2300 Cost: 0.3218052243685463
+Epoch/Iteration: 2400 Cost: 0.31728788201205854
+Epoch/Iteration: 2500 Cost: 0.31328699604045984
+Epoch/Iteration: 2600 Cost: 0.3097371964481992
+Epoch/Iteration: 2700 Cost: 0.30662629889109577
+Epoch/Iteration: 2800 Cost: 0.3038903941580641
+Epoch/Iteration: 2900 Cost: 0.3014707836382209
+Final Cost: 0.2993286888278317
+Training Accuracy: 0.86875
+Validation Accuracy: 0.855
+
+=========== MOON 2D WIDE ===========
+Epoch/Iteration: 0 Cost: 0.6245779517280209
+Epoch/Iteration: 100 Cost: 0.4970417483338283
+Epoch/Iteration: 200 Cost: 0.42062946028158854
+Epoch/Iteration: 300 Cost: 0.3696189692004323
+Epoch/Iteration: 400 Cost: 0.3357954185158771
+Epoch/Iteration: 500 Cost: 0.3142452527921183
+Epoch/Iteration: 600 Cost: 0.29985530007596084
+Epoch/Iteration: 700 Cost: 0.28939343477804697
+Epoch/Iteration: 800 Cost: 0.2812107953084877
+Epoch/Iteration: 900 Cost: 0.27467150562268267
+Epoch/Iteration: 1000 Cost: 0.2693011358728466
+Epoch/Iteration: 1100 Cost: 0.2647135692635961
+Epoch/Iteration: 1200 Cost: 0.2606712972600049
+Epoch/Iteration: 1300 Cost: 0.25705436548880484
+Epoch/Iteration: 1400 Cost: 0.25377174491533444
+Epoch/Iteration: 1500 Cost: 0.25078280674289416
+Epoch/Iteration: 1600 Cost: 0.24802536642872838
+Epoch/Iteration: 1700 Cost: 0.2454556413245776
+Epoch/Iteration: 1800 Cost: 0.24306951329769658
+Epoch/Iteration: 1900 Cost: 0.2408076272234929
+Epoch/Iteration: 2000 Cost: 0.238669298930324
+Epoch/Iteration: 2100 Cost: 0.2366323491111923
+Epoch/Iteration: 2200 Cost: 0.23468828356667382
+Epoch/Iteration: 2300 Cost: 0.23282060391859605
+Epoch/Iteration: 2400 Cost: 0.23102691823316526
+Epoch/Iteration: 2500 Cost: 0.2293166545631002
+Epoch/Iteration: 2600 Cost: 0.2276521701058792
+Epoch/Iteration: 2700 Cost: 0.22601366932143915
+Epoch/Iteration: 2800 Cost: 0.22440959082839246
+Epoch/Iteration: 2900 Cost: 0.22283505626344818
+Final Cost: 0.2212991129140493
+Training Accuracy: 0.89375
+Validation Accuracy: 0.885
+
+
+==================================================
+SIMPLE NETWORK RESULTS
+==================================================
+
+
+========================================
+AVERAGE RESULTS
+========================================
+
+Dataset: Gaussian 2D Narrow
+Average Training Accuracy: 0.9125
+Average Validation Accuracy: 0.9
+Average Final Cost: 0.46049836643844666
+
+Dataset: Gaussian 2D Overlap
+Average Training Accuracy: 0.59375
+Average Validation Accuracy: 0.75
+Average Final Cost: 0.645975261528209
+
+Dataset: Gaussian 2D Wide
+Average Training Accuracy: 0.8375
+Average Validation Accuracy: 0.825
+Average Final Cost: 0.5128665847528668
+
+Dataset: Gaussian 3D Narrow
+Average Training Accuracy: 0.91875
+Average Validation Accuracy: 0.675
+Average Final Cost: 0.3754180229968757
+
+Dataset: Gaussian 3D Overlap
+Average Training Accuracy: 0.7
+Average Validation Accuracy: 0.575
+Average Final Cost: 0.5893658937697215
+
+Dataset: Gaussian 3D Wide
+Average Training Accuracy: 1.0
+Average Validation Accuracy: 1.0
+Average Final Cost: 0.2125237947782091
+
+Dataset: Moon 2D Narrow
+Average Training Accuracy: 0.84125
+Average Validation Accuracy: 0.83
+Average Final Cost: 0.32362800029834965
+
+Dataset: Moon 2D Overlap
+Average Training Accuracy: 0.78375
+Average Validation Accuracy: 0.765
+Average Final Cost: 0.4381104400742099
+
+Dataset: Moon 2D Wide
+Average Training Accuracy: 0.83125
+Average Validation Accuracy: 0.81
+Average Final Cost: 0.3333748659317288
+
+
+==================================================
+COMPLEX NETWORK RESULTS
+==================================================
+
+
+========================================
+AVERAGE RESULTS
+========================================
+
+Dataset: Gaussian 2D Narrow
+Average Training Accuracy: 0.89375
+Average Validation Accuracy: 0.825
+Average Final Cost: 0.43010527520193687
+
+Dataset: Gaussian 2D Overlap
+Average Training Accuracy: 0.71875
+Average Validation Accuracy: 0.8
+Average Final Cost: 0.6215416724163931
+
+Dataset: Gaussian 2D Wide
+Average Training Accuracy: 0.85
+Average Validation Accuracy: 0.875
+Average Final Cost: 0.3369838081499785
+
+Dataset: Gaussian 3D Narrow
+Average Training Accuracy: 0.8875
+Average Validation Accuracy: 0.775
+Average Final Cost: 0.4199127628244253
+
+Dataset: Gaussian 3D Overlap
+Average Training Accuracy: 0.68125
+Average Validation Accuracy: 0.55
+Average Final Cost: 0.5604260682910592
+
+Dataset: Gaussian 3D Wide
+Average Training Accuracy: 1.0
+Average Validation Accuracy: 1.0
+Average Final Cost: 0.11640031855489259
+
+Dataset: Moon 2D Narrow
+Average Training Accuracy: 0.8875
+Average Validation Accuracy: 0.89
+Average Final Cost: 0.23232436961567995
+
+Dataset: Moon 2D Overlap
+Average Training Accuracy: 0.86875
+Average Validation Accuracy: 0.855
+Average Final Cost: 0.2993286888278317
+
+Dataset: Moon 2D Wide
+Average Training Accuracy: 0.89375
+Average Validation Accuracy: 0.885
+Average Final Cost: 0.2212991129140493
