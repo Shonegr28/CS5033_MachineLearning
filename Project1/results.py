@@ -72,25 +72,31 @@ def print_results(dataset_names, all_results):
         print("Average Final Cost:", averages[2])
 
 
-def plot_validation_accuracy(dataset_names, all_results):
-    validation_accuracies = []
+def plot_validation_accuracy_comparison(dataset_names, simple_results, complex_results, file_name):
+    simple_accuracies = []
+    complex_accuracies = []
 
-    for results in all_results:
-        averages = average_results(results)
-        validation_accuracies.append(averages[1])
+    for i in range(len(dataset_names)):
+        simple_accuracies.append(average_results(simple_results[i])[1])
+        complex_accuracies.append(average_results(complex_results[i])[1])
 
-    plt.figure(figsize=(12, 6))
-    plt.bar(dataset_names, validation_accuracies)
+    x = np.arange(len(dataset_names))
+    width = 0.35
+
+    plt.figure(figsize=(14, 7))
+    plt.bar(x - width / 2, simple_accuracies, width, label="Simple Network")
+    plt.bar(x + width / 2, complex_accuracies, width, label="Complex Network")
 
     plt.xlabel("Dataset")
     plt.ylabel("Average Validation Accuracy")
-    plt.title("Average Validation Accuracy Across Some Repetitions")
-    plt.ylim(0, 1)
-    plt.xticks(rotation=45, ha="right")
-
+    plt.title("Simple vs Complex Network - Average Validation Accuracy")
+    plt.xticks(x, dataset_names, rotation=30, ha="right")
+    plt.ylim(0, 1.0)
+    plt.legend()
     plt.tight_layout()
-    plt.savefig(os.path.join(DIRECTORY, "validation_accuracy.png"))
-    plt.show()
+
+    plt.savefig(os.path.join(DIRECTORY, file_name))
+    plt.close()
 
 
 def plot_average_cost(dataset_names, all_results, network_name, file_name):

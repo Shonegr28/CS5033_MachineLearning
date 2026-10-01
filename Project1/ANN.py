@@ -509,14 +509,14 @@ if __name__ == "__main__":
     # simple network configuration
     simple_dimensions_2d = [2, 3, 1]
     simple_dimensions_3d = [3, 3, 1]
-    simple_learning_rate = 0.005
-    simple_num_iterations = 3000
+    simple_learning_rate = 0.01
+    simple_num_iterations = 3500
 
     # complex network configuration
     complex_dimensions_2d = [2, 10, 5, 1]
     complex_dimensions_3d = [3, 10, 5, 1]
-    complex_learning_rate = 0.005
-    complex_num_iterations = 3000
+    complex_learning_rate = 0.01
+    complex_num_iterations = 3500
 
     num_repetitions = 1
 
@@ -633,6 +633,8 @@ if __name__ == "__main__":
 
     os.makedirs(data_directory, exist_ok=True)
     os.makedirs(compare_directory, exist_ok=True)
+
+    plot_validation_accuracy_comparison(dataset_names,simple_results,complex_results,"validation_accuracy.png")
 
 
     # ============================================================
