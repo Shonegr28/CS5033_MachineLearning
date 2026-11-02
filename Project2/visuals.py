@@ -264,17 +264,20 @@ def predicted_vs_actual(runs, filename):
     run = runs[0]
     model = run["model"]
 
-    # predict using only the held-out test data
-    y_actual = run["y_test"]
-    y_pred = model.predict(run["X_test"])
+    # get actual and predicted values for validation and test
+    y_val = run["y_val"]
+    y_test = run["y_test"]
+    pred_val = model.predict(run["X_val"])
+    pred_test = model.predict(run["X_test"])
 
     # find the range for the perfect prediction line
-    low = min(y_actual.min(), y_pred.min())
-    high = max(y_actual.max(), y_pred.max())
+    low = min(y_val.min(), y_test.min(), pred_val.min(), pred_test.min())
+    high = max(y_val.max(), y_test.max(), pred_val.max(), pred_test.max())
 
-    # plot actual values against predicted values
+    # plot validation and test predictions separately
     fig, ax = plt.subplots(figsize=(7, 6))
-    ax.scatter(y_actual, y_pred, alpha=0.7, label="Test Predictions")
+    ax.scatter(y_val, pred_val, alpha=0.7, label="Validation Predictions")
+    ax.scatter(y_test, pred_test, alpha=0.7, label="Test Predictions")
 
     # draw the perfect prediction reference line
     ax.plot([low, high], [low, high], "k--", label="Perfect Prediction")
@@ -306,16 +309,18 @@ def residual_plot(runs, filename):
     run = runs[0]
     model = run["model"]
 
-    # predict using only the held-out test data
-    y_actual = run["y_test"]
-    y_pred = model.predict(run["X_test"])
+    # predict using validation and test data separately
+    pred_val = model.predict(run["X_val"])
+    pred_test = model.predict(run["X_test"])
 
     # calculate residuals as actual minus predicted
-    residuals = y_actual - y_pred
+    residuals_val = run["y_val"] - pred_val
+    residuals_test = run["y_test"] - pred_test
 
-    # plot the residuals against predicted values
+    # plot validation and test residuals separately
     fig, ax = plt.subplots(figsize=(8, 5))
-    ax.scatter(y_pred, residuals, alpha=0.7, label="Test Residuals")
+    ax.scatter(pred_val, residuals_val, alpha=0.7, label="Validation Residuals")
+    ax.scatter(pred_test, residuals_test, alpha=0.7, label="Test Residuals")
 
     # draw the zero residual reference line
     ax.axhline(0, color="black", linestyle="--", label="Zero Residual")
@@ -391,9 +396,6 @@ if __name__ == "__main__":
         predicted_vs_actual(runs, filename)
 
 
-    print("\n---------- all plots saved to plots/ ----------")
-
-
     print("---------- Creating comparison bar charts ----------")
     comparison_bar_charts(models)
 
@@ -408,3 +410,5 @@ if __name__ == "__main__":
     # print the fitted regression equation for all 9 datasets
     for filename, runs in models.items():
         print_regression_equation(runs, filename)
+
+    print("\n---------- all plots saved to plots/ ----------")
