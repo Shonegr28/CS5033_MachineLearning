@@ -182,6 +182,185 @@ def scatter_plot_2d(runs, filename):
     plt.close(fig)
 
 
+def comparison_bar_charts(models):
+    # calculate the mean and std of test metrics for each dataset
+    results = {}
+
+    for filename, runs in models.items():
+        results[filename] = {"MAE": [], "MSE": [], "RMSE": []}
+
+        for run in runs:
+            metrics = evaluate_model(
+                run["model"], run["X_test"], run["y_test"]
+            )
+
+            for metric in ("MAE", "MSE", "RMSE"):
+                results[filename][metric].append(metrics[metric])
+
+    # create a folder for the comparison charts
+    plots_dir = Path(__file__).resolve().parent / "plots" / "comparisons"
+    plots_dir.mkdir(parents=True, exist_ok=True)
+
+    # create noise and dimension comparison charts for each metric
+    for comparison in ("noise", "dimension"):
+        for metric in ("MAE", "MSE", "RMSE"):
+
+            if comparison == "noise":
+                groups = ("L", "M", "H")
+                labels = ("Low", "Moderate", "High")
+                categories = ("1D", "2D", "3D")
+                xlabel = "Noise Level"
+            else:
+                groups = ("1D", "2D", "3D")
+                labels = groups
+                categories = ("L", "M", "H")
+                xlabel = "Dimension"
+
+            fig, ax = plt.subplots(figsize=(8, 5))
+            x = np.arange(3)
+            width = 0.25
+
+            # draw three grouped bars with std error bars
+            for i, category in enumerate(categories):
+                means = []
+                stds = []
+
+                for group in groups:
+                    if comparison == "noise":
+                        filename = f"{category} {group}.csv"
+                    else:
+                        filename = f"{group} {category}.csv"
+
+                    values = results[filename][metric]
+                    means.append(np.mean(values))
+                    stds.append(np.std(values, ddof=1))
+
+                if comparison == "noise":
+                    bar_label = category
+                else:
+                    bar_label = {"L": "Low", "M": "Moderate", "H": "High"}[category]
+
+                ax.bar(x + (i - 1) * width, means, width,
+                       yerr=stds, capsize=4, label=bar_label)
+
+            ax.set_xticks(x)
+            ax.set_xticklabels(labels)
+            ax.set_xlabel(xlabel)
+            ax.set_ylabel(f"Mean Test {metric}")
+            ax.set_title(f"{metric} - {comparison.capitalize()} Comparison (30 Runs)")
+            ax.set_ylim(bottom=0)
+            ax.legend()
+            ax.grid(axis="y", alpha=0.3)
+            ax.set_axisbelow(True)
+
+            fig.tight_layout()
+            fig.savefig(plots_dir / f"{comparison}_{metric.lower()}.png",
+                        dpi=300, bbox_inches="tight")
+            plt.close(fig)
+
+
+def predicted_vs_actual(runs, filename):
+    # use the first fitted model (seed 42)
+    run = runs[0]
+    model = run["model"]
+
+    # predict using only the held-out test data
+    y_actual = run["y_test"]
+    y_pred = model.predict(run["X_test"])
+
+    # find the range for the perfect prediction line
+    low = min(y_actual.min(), y_pred.min())
+    high = max(y_actual.max(), y_pred.max())
+
+    # plot actual values against predicted values
+    fig, ax = plt.subplots(figsize=(7, 6))
+    ax.scatter(y_actual, y_pred, alpha=0.7, label="Test Predictions")
+
+    # draw the perfect prediction reference line
+    ax.plot([low, high], [low, high], "k--", label="Perfect Prediction")
+
+    ax.set_title(f"{filename} - Predicted vs. Actual (Run 1)")
+    ax.set_xlabel("Actual y")
+    ax.set_ylabel("Predicted y")
+    ax.set_xlim(low, high)
+    ax.set_ylim(low, high)
+    ax.set_aspect("equal", adjustable="box")
+    ax.legend()
+    ax.grid(alpha=0.3)
+
+    # save the plot in its dimension folder
+    dimension = filename.split("D")[0] + "D"
+    plots_dir = Path(__file__).resolve().parent / "plots" / dimension
+    plots_dir.mkdir(parents=True, exist_ok=True)
+
+    plot_name = filename.replace(".csv", "").replace(" ", "_")
+    fig.savefig(plots_dir / f"{plot_name}_predicted_vs_actual.png",
+                dpi=300, bbox_inches="tight")
+
+    plt.close(fig)
+
+
+
+def residual_plot(runs, filename):
+    # use the first fitted model (seed 42)
+    run = runs[0]
+    model = run["model"]
+
+    # predict using only the held-out test data
+    y_actual = run["y_test"]
+    y_pred = model.predict(run["X_test"])
+
+    # calculate residuals as actual minus predicted
+    residuals = y_actual - y_pred
+
+    # plot the residuals against predicted values
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.scatter(y_pred, residuals, alpha=0.7, label="Test Residuals")
+
+    # draw the zero residual reference line
+    ax.axhline(0, color="black", linestyle="--", label="Zero Residual")
+
+    ax.set_title(f"{filename} - Residual Plot (Run 1)")
+    ax.set_xlabel("Predicted y")
+    ax.set_ylabel("Residual (Actual - Predicted)")
+    ax.legend()
+    ax.grid(alpha=0.3)
+
+    # save the plot in its dimension folder
+    dimension = filename.split("D")[0] + "D"
+    plots_dir = Path(__file__).resolve().parent / "plots" / dimension
+    plots_dir.mkdir(parents=True, exist_ok=True)
+
+    plot_name = filename.replace(".csv", "").replace(" ", "_")
+    fig.savefig(plots_dir / f"{plot_name}_residuals.png",
+                dpi=300, bbox_inches="tight")
+
+    plt.close(fig)
+
+
+
+def print_regression_equation(runs, filename):
+    # use the first fitted model (seed 42)
+    run = runs[0]
+    model = run["model"]
+    scaler = run["scaler"]
+
+    # convert the coefficients back to the original input scale
+    coefficients = model.coef_ / scaler.scale_
+
+    # adjust the intercept to match the original input scale
+    intercept = model.intercept_ - np.sum(coefficients * scaler.mean_)
+
+    # build the regression equation
+    equation = f"y = {intercept:.6f}"
+
+    for i, coefficient in enumerate(coefficients):
+        equation += f" {coefficient:+.6f}*x{i + 1}"
+
+    print(f"\nDataset: {filename}")
+    print(f"Run 1 (seed 42): {equation}")
+
+
 
 
 if __name__ == "__main__":
@@ -203,5 +382,29 @@ if __name__ == "__main__":
         if filename.startswith("2D"):
             print(f"---------- Creating 2d scatter plot: {filename} ----------")
             scatter_plot_2d(runs, filename)
-            
+
+
+    
+    # create predicted vs actual plots for all 9 datasets
+    for filename, runs in models.items():
+        print(f"---------- Creating predicted vs actual plot: {filename} ----------")
+        predicted_vs_actual(runs, filename)
+
+
     print("\n---------- all plots saved to plots/ ----------")
+
+
+    print("---------- Creating comparison bar charts ----------")
+    comparison_bar_charts(models)
+
+
+
+    # create residual plots for all 9 datasets
+    for filename, runs in models.items():
+        print(f"---------- Creating residual plot: {filename} ----------")
+        residual_plot(runs, filename)
+
+
+    # print the fitted regression equation for all 9 datasets
+    for filename, runs in models.items():
+        print_regression_equation(runs, filename)
